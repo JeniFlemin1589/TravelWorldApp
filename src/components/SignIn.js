@@ -73,7 +73,7 @@ const SignIn = () => {
       sx={{
         background: 'linear-gradient(to right, #4b6cb7, #182848)',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://getwallpapers.com/wallpaper/full/a/8/2/1263112-vertical-world-most-beautiful-places-wallpapers-2560x1600-for-tablet.jpg')`,
-        height: '100vh',
+        miHeight: '100vh',
         padding: 4,
       }}
     >

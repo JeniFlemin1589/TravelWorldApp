@@ -76,10 +76,13 @@ const SignUp = () => {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(to right, #4b6cb7, #182848)',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://getwallpapers.com/wallpaper/full/a/8/6/1263136-free-world-most-beautiful-places-wallpapers-1920x1200-xiaomi.jpg')`,
-        height: '100vh',
+        minHeight: '100vh',
         padding: 4,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        padding: '20px', // Add padding for better spacing on mobile
       }}
     >
       <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ height: '100%' }}>

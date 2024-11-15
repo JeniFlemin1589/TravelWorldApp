@@ -31,7 +31,7 @@ const Cart = () => {
       'service_j8etyhp',        // Replace with your EmailJS service ID
       'template_hxajnmy',       // Replace with your EmailJS template ID
       templateParams,
-      'FSopHUtEMq6xHKp5f'            // Replace with your EmailJS user ID
+      'FSopHUtEMq6xHKp5f'       // Replace with your EmailJS user ID
     )
     .then((response) => {
       alert('Email sent successfully!');
@@ -56,13 +56,15 @@ const Cart = () => {
         sx={{
           borderRadius: 3,
           p: 4,
-          maxWidth: '800px',
-          marginTop:'90px',
-          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+          maxWidth: '100%', // Full width on smaller screens
+          marginTop: '90px',
           boxShadow: 8,
           overflow: 'hidden',
           backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
           backdropFilter: 'blur(10px)', // Blurred effect
+          [theme => theme.breakpoints.up('sm')]: {
+            maxWidth: '800px', // Default size for larger screens
+          }
         }}
       >
         <Typography variant="h4" sx={{ mb: 4, fontFamily: 'Poppins', fontWeight: 'bold', textAlign: 'center', color: '#333' }}>
@@ -80,19 +82,21 @@ const Cart = () => {
               key={index}
               sx={{
                 display: 'flex',
+                flexDirection: 'column', // Stack on mobile
                 alignItems: 'center',
                 mb: 3,
                 p: 2,
                 borderRadius: 2,
                 backgroundColor: '#f9f9f9',
                 boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-                boxShadow: 8,
-                overflow: 'hidden',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
-                backdropFilter: 'blur(10px)', // Blurred effect
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                [theme => theme.breakpoints.up('sm')]: {
+                  flexDirection: 'row', // Row layout on larger screens
+                }
               }}
             >
-              <Box component="img" src={item.image} alt={item.name} sx={{ width: 100, height: 100, borderRadius: 2, mr: 2, border: '1px solid #ddd' }} />
+              <Box component="img" src={item.image} alt={item.name} sx={{ width: 100, height: 100, borderRadius: 2, mb: 2, [theme => theme.breakpoints.up('sm')]: { mb: 0, mr: 2 } }} />
               <Box sx={{ flex: 1, ml: 2 }}>
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#555' }}>{item.name}</Typography>
                 <Typography variant="body2" color="textSecondary" sx={{ mb: 1 }}>{item.info.slice(0, 200)}</Typography>
@@ -115,16 +119,7 @@ const Cart = () => {
 
         <Divider sx={{ my: 4 }} />
 
-        <Box sx={{ textAlign: 'right', mb: 4, p: 3, borderRadius: 2 ,
-                        p: 4,
-                        minWidth: '500px',
-                        boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-                        boxShadow: 8,
-                        overflow: 'hidden',
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
-                        backdropFilter: 'blur(10px)', // Blurred effect
-                      
-        }}>
+        <Box sx={{ textAlign: 'right', mb: 4, p: 3, borderRadius: 2, minWidth: '300px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)', backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)' }}>
           <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#333' }}>Subtotal: ${subtotal.toFixed(2)}</Typography>
           <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#333' }}>Shipping: ${shipping.toFixed(2)}</Typography>
           <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#333' }}>Tax: ${tax.toFixed(2)}</Typography>
